@@ -16,7 +16,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from accounts.views import SignUpView
+from food_log.views import CalorieListCreateView
+from food_log.views import CalorieRetrieveUpdateDeleteView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path("account/register/",SignUpView.as_view()),
+    path("calories/",CalorieListCreateView.as_view()),
+    path("calories/<int:pk>/",CalorieRetrieveUpdateDeleteView.as_view()),
 ]
+    
+
